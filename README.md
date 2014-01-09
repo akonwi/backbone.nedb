@@ -7,3 +7,9 @@ Currently...
 =============
 
 This is a very simplified and alpha setup right now and it is just a replacement Backbone.sync method. Only the basic CRUD operations have been implemented at the moment because I haven't found a need for the extra fixin's and options.
+
+Setup
+=============
+
+The module is a function that takes the Backbone object and stuffs it with a new sync method
+`require('backbone.nedb')(Backbone)`

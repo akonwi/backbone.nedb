@@ -3,7 +3,7 @@
     "name": "Akonwi Ngoh",
     "email": "akonwi@gmail.com"
   },
-  "license": "MIT",
+  "main": "lib/backbone_sync.js",
   "name": "backbone.nedb",
   "version": "0.0.1",
   "description": "Use Backbone models with NeDB rather than REST server database",
@@ -11,10 +11,13 @@
     "type": "git",
     "url": "http://github.com/akonwi/backbone.nedb"
   },
-  "dependencies": {
-    "backbone": ">=1.1.0"
+  "scripts": {
+    "prepublish": "coffee -c -o lib/ src/backbone_sync.coffee"
   },
+  "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
+    "coffee-script": "*",
     "mocha": ">=1.16.2",
     "should": ">=2.1.1",
     "nedb": ">=0.9.3"
