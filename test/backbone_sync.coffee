@@ -7,6 +7,10 @@ require('../src/backbone_sync')(Backbone)
 ## dummy model I was using in another app
 class Word extends Backbone.Model
   idAttribute: '_id'
+  ## print events to make sure they are still being fired
+  initialize: ->
+    this.on 'all', (event) ->
+      console.log "#{event} just happened"
 
 # NeDB datastore
 global.db = new Datastore()

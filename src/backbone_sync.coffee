@@ -29,6 +29,9 @@ module.exports = (Backbone) ->
         attributes,
         {},
         (err, numReplaced) ->
+          model.trigger('request', model, err, options) if err?
+          model.trigger('request', model, numReplaced, options)
+
           ## Somehow in hell, numReplaced which is an integer, magically turns
           #  into a backbone model when I stuff it into the callback
           #  WHAT AM I MISSING HERE?
@@ -41,10 +44,15 @@ module.exports = (Backbone) ->
       console.log "deleting model..."
       attributes = model.toJSON()
       db.remove {_id: attributes._id}, (err) ->
+        model.trigger('request', model, err, options) if err?
+        model.trigger('request', model, null, options)
         if err? then options.error?(err) else options.success?()
 
     read: (model, options) ->
       console.log "fetching model from database..."
       db.findOne {_id: model.get('_id')}, (err, doc) ->
+        model.trigger('request', model, err, options) if err?
+        model.trigger('request', model, doc, options)
+
         options.error?(doc, err)
         options.success?(doc)

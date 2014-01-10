@@ -5,7 +5,7 @@
   },
   "main": "lib/backbone_sync.js",
   "name": "backbone.nedb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use Backbone models with NeDB rather than REST server database",
   "repository": {
     "type": "git",
